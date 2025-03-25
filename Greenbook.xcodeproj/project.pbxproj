@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E01513D12D92F3EE00DE554C /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = E01513D02D92F3EE00DE554C /* .gitignore */; };
 		E088E6882D92327100A75B33 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = E088E6872D92327100A75B33 /* FirebaseAnalytics */; };
 		E088E68A2D92327100A75B33 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = E088E6892D92327100A75B33 /* FirebaseAuth */; };
 		E088E68C2D92327100A75B33 /* FirebaseCore in Frameworks */ = {isa = PBXBuildFile; productRef = E088E68B2D92327100A75B33 /* FirebaseCore */; };
@@ -31,6 +32,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E01513D02D92F3EE00DE554C /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		E04C989E2D920222002DA96F /* Greenbook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Greenbook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E04C98AE2D920223002DA96F /* GreenbookTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GreenbookTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E04C98B82D920223002DA96F /* GreenbookUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GreenbookUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -86,6 +88,7 @@
 		E04C98952D920222002DA96F = {
 			isa = PBXGroup;
 			children = (
+				E01513D02D92F3EE00DE554C /* .gitignore */,
 				E04C98A02D920222002DA96F /* Greenbook */,
 				E04C98B12D920223002DA96F /* GreenbookTests */,
 				E04C98BB2D920223002DA96F /* GreenbookUITests */,
@@ -238,6 +241,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E01513D12D92F3EE00DE554C /* .gitignore in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
