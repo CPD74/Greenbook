@@ -41,20 +41,6 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		E01513EE2D932E2D00DE554C /* Exceptions for "Greenbook" folder in "GreenbookTests" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				"GoogleService-Info.plist",
-			);
-			target = E04C98AD2D920223002DA96F /* GreenbookTests */;
-		};
-		E01513EF2D932E2D00DE554C /* Exceptions for "Greenbook" folder in "GreenbookUITests" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				"GoogleService-Info.plist",
-			);
-			target = E04C98B72D920223002DA96F /* GreenbookUITests */;
-		};
 		E05742082D93340D00AC7581 /* Exceptions for "Greenbook" folder in "Greenbook" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
@@ -69,8 +55,6 @@
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
 				E05742082D93340D00AC7581 /* Exceptions for "Greenbook" folder in "Greenbook" target */,
-				E01513EE2D932E2D00DE554C /* Exceptions for "Greenbook" folder in "GreenbookTests" target */,
-				E01513EF2D932E2D00DE554C /* Exceptions for "Greenbook" folder in "GreenbookUITests" target */,
 			);
 			path = Greenbook;
 			sourceTree = "<group>";
