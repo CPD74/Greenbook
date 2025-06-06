@@ -24,17 +24,24 @@ struct OnboardingView: View {
                         .ignoresSafeArea(.all)
                     
                     // Semi-transparent overlay to improve text readability
-                    Color.black.opacity(0.3)
+                    Color.black.opacity(0.6)
                         .ignoresSafeArea(.all)
                     
                     // Content laid over the image
                     VStack(spacing: 0) {
                         // Title section - bigger text, closer to top
                         VStack(spacing: 12) {
-                            Text("GREENBOOK")
-                                .font(.system(size: 48, weight: .bold, design: .default))
-                                .foregroundColor(.white)
-                                .multilineTextAlignment(.center)
+                            // Split color title
+                            HStack(spacing: 0) {
+                                Text("GREEN")
+                                    .font(.system(size: 48, weight: .bold, design: .default))
+                                    .foregroundColor(.greenbookAuth)
+                                    .shadow(color: .black, radius: 2, x: 1, y: 1) // Add shadow
+                                Text("BOOK")
+                                    .font(.system(size: 48, weight: .bold, design: .default))
+                                    .foregroundColor(.white)
+                            }
+                            .multilineTextAlignment(.center)
                             
                             Text("YOUR LIFE IN GOLF")
                                 .font(.system(size: 18, weight: .medium))
@@ -53,7 +60,7 @@ struct OnboardingView: View {
                                     .font(.system(size: 20, weight: .semibold))
                                     .frame(maxWidth: .infinity)
                                     .padding(.vertical, 16)
-                                    .background(Color.green)
+                                    .background(Color.greenbookAuth)
                                     .foregroundColor(.white)
                                     .cornerRadius(60)
                             }
@@ -64,7 +71,7 @@ struct OnboardingView: View {
                                     .frame(maxWidth: .infinity)
                                     .padding(.vertical, 16)
                                     .background(Color.white)
-                                    .foregroundColor(.green)
+                                    .foregroundColor(.greenbookAuth)
                                     .cornerRadius(60)
                             }
                         }
@@ -76,9 +83,11 @@ struct OnboardingView: View {
             }
             .navigationBarHidden(true)
         }
+        .preferredColorScheme(.light) // Force the entire authentication navigation stack to light mode
     }
 }
 
 #Preview {
     OnboardingView()
+        .preferredColorScheme(.light)
 }

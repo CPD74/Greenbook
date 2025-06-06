@@ -104,7 +104,8 @@ struct CoursesView_Previews: PreviewProvider {
                     email: "john.smith@example.com",
                     displayName: "John Smith",
                     firstName: "John",
-                    lastName: "Smith"
+                    lastName: "Smith",
+                    username: "johnsmith_golf"
                 )
                 return authState
             }())

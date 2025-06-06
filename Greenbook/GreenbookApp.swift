@@ -40,16 +40,18 @@ struct GreenbookApp: App {
                 if authState.isLoading {
                     // Show loading screen while checking authentication state
                     LoadingView()
+                        .preferredColorScheme(.dark)
                 } else if authState.isAuthenticated {
-                    // User is signed in - show main app with tab navigation
+                    // User is signed in - show main app with tab navigation (dark mode)
                     MainTabView()
+                        .preferredColorScheme(.dark)
                 } else {
-                    // User is not signed in - show onboarding
+                    // User is not signed in - show onboarding (light mode)
                     AuthenticationFlow()
+                        .preferredColorScheme(.light)
                 }
             }
             .environmentObject(authState)
-            .preferredColorScheme(.dark) // Force dark mode for entire app
         }
     }
 }
@@ -93,17 +95,21 @@ struct LoadingView: View {
                 email: "john.smith@example.com",
                 displayName: "John Smith",
                 firstName: "John",
-                lastName: "Smith"
+                lastName: "Smith",
+                username: "johnsmith_golf"
             )
             return authState
         }())
+        .preferredColorScheme(.dark)
 }
 
 #Preview("Not Authenticated") {
     AuthenticationFlow()
         .environmentObject(AuthenticationState())
+        .preferredColorScheme(.light)
 }
 
 #Preview("Loading") {
     LoadingView()
+        .preferredColorScheme(.dark)
 }

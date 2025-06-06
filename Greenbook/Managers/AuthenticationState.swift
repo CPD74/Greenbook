@@ -52,9 +52,9 @@ class AuthenticationState: ObservableObject {
         } catch {
             print("Error loading user profile: \(error)")
             
-            // If user profile doesn't exist, try to create one from Firebase Auth data
+            // If user profile doesn't exist, handle the edge case
             if let firebaseUser = Auth.auth().currentUser {
-                await createProfileFromFirebaseUser(firebaseUser)
+                await handleMissingUserProfile(firebaseUser)
             } else {
                 self.currentUser = nil
             }
@@ -62,38 +62,15 @@ class AuthenticationState: ObservableObject {
     }
     
     @MainActor
-    private func createProfileFromFirebaseUser(_ firebaseUser: FirebaseAuth.User) async {
-        do {
-            print("Creating user profile from Firebase Auth data...")
-            
-            // Extract name from Firebase user (if available)
-            let displayName = firebaseUser.displayName ?? "User"
-            let email = firebaseUser.email ?? ""
-            
-            // Parse first and last name from display name
-            let nameComponents = displayName.components(separatedBy: " ")
-            let firstName = nameComponents.first ?? "User"
-            let lastName = nameComponents.count > 1 ? nameComponents.dropFirst().joined(separator: " ") : ""
-            
-            // Create user profile
-            let user = User(
-                email: email,
-                displayName: displayName,
-                firstName: firstName,
-                lastName: lastName
-            )
-            
-            // Save to Firestore
-            try await UserService.shared.createUser(user, userId: firebaseUser.uid)
-            
-            // Update current user
-            self.currentUser = user
-            print("✅ User profile created successfully for existing user")
-            
-        } catch {
-            print("❌ Failed to create user profile for existing user: \(error)")
-            self.currentUser = nil
-        }
+    private func handleMissingUserProfile(_ firebaseUser: FirebaseAuth.User) async {
+        print("⚠️ No user profile found for authenticated user")
+        print("📧 Firebase user email: \(firebaseUser.email ?? "unknown")")
+        print("🆔 Firebase user ID: \(firebaseUser.uid)")
+        
+        // Don't immediately sign out - the profile might be in the process of being created
+        // Just set currentUser to nil but keep them authenticated
+        print("⏳ Keeping user authenticated while profile creation may be in progress")
+        self.currentUser = nil
     }
     
     @MainActor
